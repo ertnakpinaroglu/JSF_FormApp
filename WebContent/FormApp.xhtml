@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<f:view>
+
+		<h:form>
+			<h:panelGrid columns="3">
+				<!--  isim soyisimn -->
+				<h:outputText value="isim soyisim giriniz" />
+				<h:inputText value="#{formManagedBean.isimSoyisim}" />
+
+				<!--  Cinsiyet checkbox -->
+				<h:outputText value="Cinsiyetinizi seçiniz" />
+				<h:selectManyCheckbox value="#{formManagedBean.cinsiyet}">
+					<f:selectItem itemLabel="Kadın" itemValue="Kadın" />
+					<f:selectItem itemLabel="Erkek" itemValue="Erkek" />
+				</h:selectManyCheckbox>
+				<!--  Ehliyetiniz var mı radio button -->
+				<h:outputText value="Ehlyetiniz var mı" />
+				<h:selectOneRadio value="#{formManagedBean.ehliyetVarmi}">
+					<f:selectItem itemLabel="Var" itemValue="Var" />
+					<f:selectItem itemLabel="Yok" itemValue="Yok" />
+				</h:selectOneRadio>
+				<!-- Adres textbox area -->
+				<h:outputText value="Adres" />
+				<h:inputTextarea cols="15" value="#{formManagedBean.adres}" />
+				<!-- il seçiniz -->
+				<h:outputText value="İl seçiniz" />
+				<h:selectOneMenu value="#{formManagedBean.il}">
+					<f:selectItem itemLabel="Hatay" itemValue="Hatay" />
+					<f:selectItem itemLabel="İstanbul" itemValue="İstanbul" />
+				</h:selectOneMenu>
+				<!--  bir resim  -->
+				<h:outputText value="Resim" />
+				<h:graphicImage value="/resources/images/jsf.jpg">
+				</h:graphicImage>
+
+
+				<!-- parola  -->
+				<h:outputText value="Parola giriniz" />
+				<h:inputSecret value="#{formManagedBean.parola}" />
+
+				<!-- Buton ile verilerin gönderimi -->
+				<h:outputText value="Buton ile verilerin gönderimi" />
+				<h:commandButton value="Gönder" />
+
+				<!-- link ile verilerin gönderiim -->
+				<h:outputText value="Link ile verilerin gönderimi" />
+				<h:commandLink value="Link ile gönder" />
+
+				<!-- Output link kullanmı -->
+				<h:outputText value="Google'a git" />
+				<h:outputLink value="http://www.google.com">GOOGLE</h:outputLink>
+
+				<!-- onay -->
+				<h:outputText value="Girdiğiniz bilgileri dogruluyor musnuz" />
+				<h:selectBooleanCheckbox value="#{formManagedBean.kabulEdildimi}" />
+
+			</h:panelGrid>
+
+			<!-- bilgileri gösteren yer -->
+			<h:panelGrid columns="1">
+				<h3>Girdiğiniz Bilgiler</h3>
+				<h:outputText value="#{formManagedBean.isimSoyisim}" />
+				<h:outputText value="#{formManagedBean.cinsiyet}" />
+				<h:outputText value="#{formManagedBean.ehliyetVarmi}" />
+				<h:outputText value="#{formManagedBean.adres}" />
+				<h:outputText value="#{formManagedBean.il}" />
+				<h:outputText value="#{formManagedBean.parola}" />
+				<h:outputText value="#{formManagedBean.mesaj}" />
+			</h:panelGrid>
+		</h:form>
+	</f:view>
+</body>
+</html>
